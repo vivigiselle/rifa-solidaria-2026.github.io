@@ -90,34 +90,40 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.appendChild(btn);
   }
 
-  // Formulario de usuario
+  // Formulario usuario
   formUsuario?.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const inputs = formUsuario.querySelectorAll("input");
-    let todoOk = true;
+  const inputs = formUsuario.querySelectorAll("input");
+  let todoOk = true;
 
-    inputs.forEach(input => {
-      if (input.value.trim() === "") {
-        input.classList.add("input-error", "shake");
-        todoOk = false;
-      }
-    });
+  inputs.forEach(input => {
+   if (input.value.trim() === "") {
+    input.classList.add("input-error", "shake");
+        todoOk = false;
+      }
+    });
 
-    if (!todoOk) return;
+    if (!todoOk) return;
 
-    const nombre = formUsuario.querySelector("input[placeholder='Ingrese su nombre']").value;
-    const apellido = formUsuario.querySelector("input[placeholder='Ingrese su apellido']").value;
-    const contacto = formUsuario.querySelector("input[placeholder='Ingrese su correo o ig']").value;
-    const telefono = formUsuario.querySelector("input[placeholder='Ingrese su número de teléfono']").value;
-    const premio = document.getElementById("preferencia-premio").value;
+    const nombre = formUsuario.querySelector("input[placeholder='Ingrese su nombre']").value;
+    const apellido = formUsuario.querySelector("input[placeholder='Ingrese su apellido']").value;
+    const contacto = formUsuario.querySelector("input[placeholder='Ingrese su correo o ig']").value;
+    const telefono = formUsuario.querySelector("input[placeholder='Ingrese su número de teléfono']").value;
 
-    formLlenado = true;
-    modalForm.style.display = "none";
-    document.body.style.overflow = "";
+    datosUsuario = {
+      nombre: `${nombre} ${apellido}`,
+      contacto,
+      telefono,
+      fechaRegistro: new Date().toISOString()
+    };
 
-    alert("✅ Datos listos. Ahora seleccioná tus números.");
-  });
+    formLlenado = true;
+    modalForm.style.display = "none";
+    document.body.style.overflow = "";
+
+    alert("✅ Datos listos. Ahora selecciona tus números y luego presiona 'Comprar Número'.");
+  });
 
   closeForm?.addEventListener("click", () => {
     modalForm.style.display = "none";
@@ -193,4 +199,3 @@ if (btnAgendar) {
 }
 
 });
-
