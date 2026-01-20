@@ -108,16 +108,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nombre = formUsuario.querySelector("input[placeholder='Ingrese su nombre']").value;
     const apellido = formUsuario.querySelector("input[placeholder='Ingrese su apellido']").value;
-    const contacto = formUsuario.querySelector("input[placeholder='Ingrese su correo electrónico o Ig']").value;
+    const contacto = formUsuario.querySelector("input[placeholder='Ingrese su correo o ig']").value;
     const telefono = formUsuario.querySelector("input[placeholder='Ingrese su número de teléfono']").value;
     const premio = document.getElementById("preferencia-premio").value;
-
-    datosUsuario = {
-      nombre: `${nombre} ${apellido}`,
-      contacto,
-      telefono,
-      premio
-    };
 
     formLlenado = true;
     modalForm.style.display = "none";
@@ -200,3 +193,4 @@ if (btnAgendar) {
 }
 
 });
+
