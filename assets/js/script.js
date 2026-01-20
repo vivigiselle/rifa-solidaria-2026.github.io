@@ -184,15 +184,10 @@ document.addEventListener("DOMContentLoaded", () => {
   linkDatosPagoMenu?.addEventListener("click", (e) => toggleTransferencia(e, true));
   btnCerrarTransferencia?.addEventListener("click", () => toggleTransferencia(null, false));
   btnCopiarDatos?.addEventListener("click", () => {
-    const lineas = modalTransferencia.querySelectorAll("p"); 
-    const textoACopiar = Array.from(lineas)
-        .map(p => p.innerText)
-        .join("\n");
-
-    navigator.clipboard.writeText(textoACopiar)
-        .then(() => alert("✅ Todos los datos copiados."))
-        .catch(err => alert("❌ Error al copiar: " + err));
+  const info = "Nombre: Vivian Roa Tapia\nRUT: 18.294.875-6\nBanco: Mercado Pago\nTipo: Cuenta Vista\nN° de Cuenta: 1019481756\nEmail: vivigiselle.ro@gmail.com";
+  navigator.clipboard.writeText(info).then(() => alert("✅ Datos Copiados."));
 });
+
 
   //Google calendar
 const hoy = new Date();
@@ -223,6 +218,7 @@ if (btnAgendar) {
 });
 
 });
+
 
 
 
