@@ -50,6 +50,13 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =====================================================
       FUNCIÓN PARA BLOQUEAR NÚMEROS YA VENDIDOS
   ===================================================== */
+ document.querySelectorAll(".numero").forEach(div => {
+  div.classList.remove("bloqueado");
+  div.style.pointerEvents = "";
+  div.style.backgroundColor = "";
+  div.style.color = "";
+});
+
   onSnapshot(numerosRef, (snapshot) => {
     const ocupados = snapshot.docs.map(d => d.id);
 
@@ -183,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //Google calendar
 const hoy = new Date();
-const fechaSorteo = new Date(2026, 2, 2); // Marzo = 2 (empieza en 0)
+const fechaSorteo = new Date(2026, 2, 2); // 2 de marzo (mes empieza en 0)
 const diasRestantes = Math.ceil(
   (fechaSorteo - hoy) / (1000 * 60 * 60 * 24)
 );
@@ -199,6 +206,17 @@ if (btnAgendar) {
     btnAgendar.innerHTML = "🗓️ Falta poco para el sorteo";
   }
 }
+  btnAgendar?.addEventListener("click", () => {
+  const url =
+    "https://www.google.com/calendar/render?action=TEMPLATE" +
+    "&text=Sorteo+Rifa+Solidaria" +
+    "&dates=20260302/20260303" +
+    "&details=Sorteo+rifa+beneficio+operación+LCA";
+
+  window.open(url, "_blank");
+});
 
 });
+
+
 
