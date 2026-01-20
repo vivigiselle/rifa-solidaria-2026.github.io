@@ -4,6 +4,7 @@ import {
   getFirestore,
   doc,
   setDoc,
+  getDoc,
   collection,
   onSnapshot,
   serverTimestamp
@@ -39,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const linkDatosPagoMenu = document.getElementById("datosPago");
   const btnCerrarTransferencia = document.getElementById("closeModal");
   const btnCopiarDatos = document.getElementById("confirmModal");
+  const btnAgendar= document.getElementById("btnAgendar")
 
   let numerosSeleccionados = [];
   let formLlenado = false;
@@ -199,3 +201,4 @@ if (btnAgendar) {
 }
 
 });
+
